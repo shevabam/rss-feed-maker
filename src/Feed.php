@@ -78,7 +78,13 @@ class Feed
      */
     public function setLastBuildDate(string $date = ''): Feed
     {
-        $this->lastBuildDate = $date;
+        if (empty($date))
+            $this->lastBuildDate = date(DATE_RSS);
+        elseif (strtotime($date) == false)
+            $this->lastBuildDate = date(DATE_RSS, $date);
+        else
+            $this->lastBuildDate = date(DATE_RSS, strtotime($date));
+
         return $this;
     }
 
@@ -90,7 +96,13 @@ class Feed
      */
     public function setPubDate(string $date = ''): Feed
     {
-        $this->pubDate = $date;
+        if (empty($date))
+            $this->pubDate = date(DATE_RSS);
+        elseif (strtotime($date) == false)
+            $this->pubDate = date(DATE_RSS, $date);
+        else
+            $this->pubDate = date(DATE_RSS, strtotime($date));
+
         return $this;
     }
 
@@ -204,7 +216,7 @@ class Feed
      */
     private function _getFeedTitle(): string
     {
-        return !empty($this->title) ? "<title>".$this->title."</title>\n" : "";
+        return !empty($this->title) ? "<title>".$this->title."</title>\n" : "<title/>";
     }
     
     /**
@@ -214,7 +226,7 @@ class Feed
      */
     private function _getFeedLink(): string
     {
-        return !empty($this->link) ? "<link>".$this->link."</link>\n" : "";
+        return !empty($this->link) ? "<link>".$this->link."</link>\n" : "</link>";
     }
     
     /**
@@ -224,7 +236,7 @@ class Feed
      */
     private function _getFeedDescription(): string
     {
-        return !empty($this->description) ? "<description>".$this->description."</description>\n" : "";
+        return !empty($this->description) ? "<description>".$this->description."</description>\n" : "<description/>";
     }
     
     /**
