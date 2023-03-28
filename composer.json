@@ -1,0 +1,23 @@
+{
+    "name": "shevabam/rss-feed-maker",
+    "description": "Create RSS feeds easily in PHP",
+    "keywords": ["rss", "feed", "php"],
+    "homepage": "https://github.com/shevabam/rss-feed-maker",
+    "type": "library",
+    "authors": [
+        {
+            "name": "shevabam",
+            "homepage": "https://blog.shevarezo.fr"
+        }
+    ],
+    "version": "1.0.0",
+    "license": "GPL-2.0-only",
+    "autoload": {
+        "psr-4": {
+            "RssFeedMaker\\": "src/"
+        }
+    },
+    "require": {
+        "php": ">=7.4.0"
+    }
+}
