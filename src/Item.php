@@ -171,7 +171,7 @@ class Item
      */
     private function _getItemTitle(): string
     {
-        return !empty($this->title) ? "<title><![CDATA[".$this->title."]]></title>\n" : "";
+        return !empty($this->title) ? "<title><![CDATA[".$this->title."]]></title>\n" : "<title/>";
     }
     
     /**
@@ -181,7 +181,7 @@ class Item
      */
     private function _getItemLink(): string
     {
-        return !empty($this->link) ? "<link>".$this->link."</link>\n" : "";
+        return !empty($this->link) ? "<link>".$this->link."</link>\n" : "<link/>";
     }
     
     /**
@@ -201,7 +201,7 @@ class Item
      */
     private function _getItemDescription(): string
     {
-        return !empty($this->description) ? "<description><![CDATA[".$this->description."]]></description>\n" : "";
+        return !empty($this->description) ? "<description><![CDATA[".$this->description."]]></description>\n" : "<description/>";
     }
     
     /**
